@@ -1,2 +1,2 @@
 # laravel-language
-Simple Laravel Language Middleware
+Simple Laravel 5.2 Language Middleware with HTTP_ACCEPT_LANGUAGE Header Support
