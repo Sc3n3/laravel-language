@@ -11,10 +11,10 @@
 |
 */
 
-Route::get(trans('routes.about'), function(){
-	return "hakkimizda0";
+Route::get(trans('routes.home'), function () {
+	return view('welcome');
 });
 
-Route::get('/', function () {
-	return view('welcome');
+Route::get(trans('routes.about'), function(){
+	return "hakkimizda";
 });
