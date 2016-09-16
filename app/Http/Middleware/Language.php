@@ -36,7 +36,7 @@ class Language {
 
         App::setLocale($locale);
 
-        $this->setRoutes();
+        //$this->setRoutes();
 
         return $next($request);
 
