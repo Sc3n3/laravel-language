@@ -19,7 +19,7 @@ class Language {
     {
         // Make sure current locale exists.
         $locale = $request->segment(1);
-        $languages = $this->getLanguages();
+        $languages = self::getLanguages();
 
         if ( ! array_key_exists($locale, $languages)) {
             
@@ -42,18 +42,18 @@ class Language {
 
     }
 
-    private function getAcceptLanguage($request) {
-
-        return mb_substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2);
-
-    }
-
-    private function getLanguages() {
+    public static function getLanguages() {
 
         return [
             'en' => 'English',
             'tr' => 'Türkçe'
         ];
+
+    }
+
+    private function getAcceptLanguage($request) {
+
+        return mb_substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2);
 
     }
 
