@@ -26,7 +26,8 @@ class Language {
             $segments = $request->segments();
 
             $acceptLanguage = $this->getAcceptLanguage($request);
-            $defaultLanguage = ( in_array($acceptLanguage, array_keys($this->getLanguages())) ? $acceptLanguage : Config::get('app.fallback_locale') );
+            $defaultLanguage = in_array($acceptLanguage, array_keys($languages)) ? 
+                               $acceptLanguage : Config::get('app.fallback_locale');
 
             $segments = array_merge(array($defaultLanguage), $segments);
 
@@ -59,7 +60,7 @@ class Language {
     private function setRoutes() {
 
         Route::group([ 'middleware' => [ 'web' ], 'prefix' => App::getLocale() ], function() {
-            include app_path('/Http/routes.php');
+            include_once app_path('/Http/routes.php');
         });
 
     }
