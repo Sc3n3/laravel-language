@@ -54,7 +54,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes(Router $router, Request $request)
     {
 	
-		$locale = $request->segment(1);
+	$locale = $request->segment(1);
         $this->app->setLocale($locale);
 		
         $router->group([
